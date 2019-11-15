@@ -13,12 +13,14 @@ def fitness_function(population,hipodrome):
         average=int((my_horse.muscle_mass+my_horse.agility+my_horse.eyesight)/3)
 
 
-        if my_horse.endurance < my_hipodrome.length_of_track:
-            dif=hipodrome.length_of_track-my_horse.endurance
+        if my_horse.endurance < hipodrome.length_of_track:
+            dif=hipodrome.length_of_track - my_horse.endurance
             fitness_function=int(fitness_function- (dif*fitness_function)/10)
         else:
             dif=my_horse.endurance-hipodrome.length_of_track
             fitness_function= int(fitness_function+ (dif*fitness_function)/10)
+
+        
 
         if average < hipodrome.obstacles_dificulty:
             dif=hipodrome.obstacles_dificulty-average
@@ -35,7 +37,7 @@ def fitness_function(population,hipodrome):
             fitness_function=int(fitness_function+(dif*fitness_function)/10)
 
         if my_horse.muscle_mass < hipodrome.rider_weight:
-            dif=my_hipodrome.rider_weight-my_horse.muscle_mass
+            dif=hipodrome.rider_weight-my_horse.muscle_mass
             fitness_function=int(fitness_function-(dif*fitness_function)/10)
         else:
             dif=my_horse.muscle_mass-hipodrome.rider_weight
@@ -46,12 +48,13 @@ def fitness_function(population,hipodrome):
         elif fitness_function==0:
             fitness_function=1  
         
-        list_fitness_function.append(fitness_function)
+        list_fitness_function.append(fitness_function)   
+
     return list_fitness_function
+
+   
     
 
-    
-    
 initial_population=horse.Horse.generate_population(10)
 my_hipodrome=hipodrome.Hipodrome(8,7,3,2) 
 

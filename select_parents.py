@@ -1,17 +1,17 @@
 from itertools import repeat
-import horse
-import hipodrome
-from fitness_function import fitness_function
+import random
+import statistics_module
 
 
-initial_population=horse.Horse.generate_population(10)
-my_hipodrome=hipodrome.Hipodrome(8,7,3,2) 
 
 
-roulet_wheel_list=[]
+def parents(horse_fitness, number_of_parents):
+    
+    roulet_wheel_list=[]
+    parents_fitness_list=[]
 
-def parents(horse_fitness):
     for val_fitness in horse_fitness:
+
         if val_fitness >= 8:
              roulet_wheel_list.extend(repeat(val_fitness,100))
         elif val_fitness >= 6:
@@ -21,8 +21,18 @@ def parents(horse_fitness):
         else:
             roulet_wheel_list.append(val_fitness)
 
-    print(roulet_wheel_list)
+    while len(parents_fitness_list) < number_of_parents:
+        fitness=random.choice(roulet_wheel_list)
+        roulet_wheel_list.remove(fitness)
+        if fitness not in parents_fitness_list:
+            parents_fitness_list.append(fitness)
+        
+        
+    return parents_fitness_list
 
 
-list_fitness_function=fitness_function(initial_population,my_hipodrome)
-parents(list_fitness_function)
+list_fitness=statistics_module.list_fitness
+my_horse_fitness=statistics_module.my_horse.fitness
+
+
+parents(list_fitness,2)
