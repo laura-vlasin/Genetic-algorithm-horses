@@ -47,8 +47,9 @@ def fitness_function(population,hipodrome):
             fitness_function=1  
         
         list_fitness_function.append(fitness_function)
-    print(list_fitness_function)
-    return fitness_function
+    return list_fitness_function
+    
+
     
     
 initial_population=horse.Horse.generate_population(10)

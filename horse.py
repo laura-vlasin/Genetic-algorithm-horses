@@ -23,7 +23,7 @@ class Horse:
     def generate_population(population_size):
         horse_population=[]
         for x in range(population_size):
-            horse=Horse(random.choice(string.ascii_letters), 
+            horse=Horse(''.join(random.choice(string.ascii_letters) for  i in range(5)), 
             random.randrange(Horse.min_gene_score,Horse.max_gene_score), 
             random.randrange(Horse.min_gene_score,Horse.max_gene_score),
             random.randrange(Horse.min_gene_score,Horse.max_gene_score), 
