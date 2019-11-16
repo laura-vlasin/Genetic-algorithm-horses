@@ -19,6 +19,8 @@ class Horse:
         self.muscle_mass=muscle_mass
         self.genetics=genetics
 
+
+
     @staticmethod
     def generate_population(population_size):
         horse_population=[]
@@ -35,9 +37,10 @@ class Horse:
             random.randrange(Horse.min_gene_score,Horse.max_gene_score))
 
             horse_population.append(horse)
+            
         return horse_population
 
-
+        
 
 
 
