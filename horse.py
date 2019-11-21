@@ -18,6 +18,7 @@ class Horse:
         self.fatness=fatness
         self.muscle_mass=muscle_mass
         self.genetics=genetics
+        self.genes=[speed,agility,endurance,beauty,adaptability,eyesight,fatness,muscle_mass,genetics]
 
 
 

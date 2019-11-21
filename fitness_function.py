@@ -2,7 +2,7 @@ import horse
 import hipodrome
 
 
-def fitness_function(population,hipodrome):
+def calculate_population_fitness(population,hipodrome):
     list_fitness_function=[]
     
     for my_horse in population:
@@ -58,4 +58,4 @@ def fitness_function(population,hipodrome):
 initial_population=horse.Horse.generate_population(10)
 my_hipodrome=hipodrome.Hipodrome(8,7,3,2) 
 
-fitness_function(initial_population,my_hipodrome)
+calculate_population_fitness(initial_population,my_hipodrome)

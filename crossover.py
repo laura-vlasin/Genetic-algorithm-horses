@@ -1,32 +1,22 @@
-import select_parents
-import program
-import horse
 import random
 
 
-def uniform_crossover():
-    
-    lists = [[] for _ in range(2)]
+def uniform_crossover(parents,num_of_offspring):
+
     offspring=[]
     
+    for x in range(num_of_offspring):
 
+        num_of_genes =len(parents[0].genes)
+        offspring_genes=[]
+
+        for i in num_of_genes:
+            parent_index = random.randint(0,len(parents)-1)
+            gene = parents[parent_index].genes[i]
+            offspring_genes.append(gene)
+        
     
-    for i in range(len(lists)):
-        for horse in program.initial_population:
-            list_horse_atributes=[horse.speed,horse.agility,horse.endurance,horse.beauty,horse.adaptability,
-            horse.eyesight,horse.fatness,horse.muscle_mass,horse.genetics]
-            for parent in select_parents.parents(2):
-                if horse.name==parent.name:
-                    lists[i]=list_horse_atributes
-                    
 
-    for gene in range(len(lists[0])):
-        offspring.append(lists[random.randint(0, 1)][gene])
-            
-    
-    print(lists)
-    #print(offspring)
 
-uniform_crossover()
     
 
