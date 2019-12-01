@@ -14,7 +14,8 @@ def uniform_crossover(parents,num_of_offspring):
             parent_index = random.randint(0,len(parents)-1)
             gene = parents[parent_index].genes[i]
             offspring_genes.append(gene)
-        
+            
+    
     
 
 
