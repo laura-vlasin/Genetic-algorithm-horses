@@ -7,18 +7,19 @@ def calculate_population_fitness(population,hipodrome):
     
     for my_horse in population:
 
-        #tish represents 50% of the fitness function
-        fitness_function=int(0.4*my_horse.speed+0.2*my_horse.genetics+0.3*my_horse.adaptability+ 
-        0.1*my_horse.beauty-0.2*my_horse.fatness)
+
+        fitness_function=int(0.7*(0.2*my_horse.endurance+0.2*my_horse.agility+ 0.2*my_horse.speed+ 
+        0.05+ my_horse.genetics+ 0.1*my_horse.adaptability+ 0.05*my_horse.beauty+ 
+        0.1*my_horse.eyesight+ 0.1*my_horse.muscle_mass-0.1*my_horse.fatness))
         
 
         def endurance_precent(fitness_function):
             if my_horse.endurance < hipodrome.length_of_track:
                 dif=hipodrome.length_of_track - my_horse.endurance
-                fitness_function=fitness_function- (dif*0.5)
+                fitness_function-=dif*0.1
             else:
                 dif=my_horse.endurance-hipodrome.length_of_track
-                fitness_function=fitness_function+ (dif*0.5)
+                fitness_function+=dif*0.1
             return fitness_function
 
         fitness_function=endurance_precent(fitness_function)
@@ -27,10 +28,10 @@ def calculate_population_fitness(population,hipodrome):
             average=int((my_horse.muscle_mass+my_horse.agility+my_horse.eyesight)/3)
             if average < hipodrome.obstacles_dificulty:
                 dif=hipodrome.obstacles_dificulty-average
-                fitness_function=fitness_function- (dif*0.5)
+                fitness_function-=dif*0.1
             else:
                 dif=average-hipodrome.obstacles_dificulty
-                fitness_function=fitness_function+ (dif*0.5)
+                fitness_function+=dif*0.1
             return fitness_function
 
         fitness_function=muscle_agility_eyesight(fitness_function)
@@ -38,10 +39,10 @@ def calculate_population_fitness(population,hipodrome):
         def eyesight_precent(fitness_function):
             if my_horse.eyesight < hipodrome.ground_roughness:
                 dif=hipodrome.ground_roughness- my_horse.eyesight
-                fitness_function=fitness_function-(dif*0.5)
+                fitness_function-=dif*0.05
             else:
                 dif=my_horse.eyesight-hipodrome.ground_roughness
-                fitness_function=fitness_function+(dif*0.5)
+                fitness_function+=dif*0.05
             return fitness_function    
         
         fitness_function=eyesight_precent(fitness_function)
@@ -49,10 +50,10 @@ def calculate_population_fitness(population,hipodrome):
         def muscle_mass_percentage(fitness_function):
             if my_horse.muscle_mass < hipodrome.rider_weight:
                 dif=hipodrome.rider_weight-my_horse.muscle_mass
-                fitness_function=fitness_function-(dif*0.5)
+                fitness_function-=dif*0.05
             else:
                 dif=my_horse.muscle_mass-hipodrome.rider_weight
-                fitness_function=fitness_function+(dif*0.5)
+                fitness_function+=dif*0.05
             return fitness_function
 
         fitness_function=muscle_mass_percentage(fitness_function)

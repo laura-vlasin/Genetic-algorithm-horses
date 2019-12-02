@@ -22,7 +22,11 @@ for i in range(len(initial_population)):
 
 parents=parents_selector.select_candidates(current_population_statistics,2)
 
-print(parents)
 
-#offspring=crossover.uniform_crossover(parents,10)
+
+offspring=crossover.uniform_crossover(parents,10)
 #mutated_offsping=mutation.non_uniform_mutation(offspring)
+print(list_fitness)
+print(parents)
+print(offspring)
+print('cozonac')
