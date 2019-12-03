@@ -30,4 +30,4 @@ second_population=horse.new_population_generator(after_mutation_offsping)
 
 print(after_mutation_offsping)
 print(second_population)
-print('cozonac')
+
