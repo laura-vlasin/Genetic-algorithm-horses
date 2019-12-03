@@ -38,8 +38,27 @@ class Horse:
             random.randrange(Horse.min_gene_score,Horse.max_gene_score))
 
             horse_population.append(horse)
-            
+
         return horse_population
+
+    @staticmethod
+    def new_population_generator(offspring_genes):
+
+        new_population=[]
+
+        for x in range(len(offspring_genes)):
+    
+            gene=offspring_genes[x] 
+           
+            horse=Horse(''.join(random.choice(string.ascii_letters) for  i in range(5)),
+            gene[0],gene[1],gene[2],gene[3],gene[4],gene[5],gene[6],gene[7],gene[8])
+
+            new_population.append(horse)
+
+        return new_population
+
+
+       
 
         
 

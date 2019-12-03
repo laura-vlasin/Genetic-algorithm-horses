@@ -25,8 +25,9 @@ parents=parents_selector.select_candidates(current_population_statistics,2)
 
 
 offspring=crossover.uniform_crossover(parents,10)
-#mutated_offsping=mutation.non_uniform_mutation(offspring)
-print(list_fitness)
-print(parents)
-print(offspring)
+after_mutation_offsping=mutation.non_uniform_mutation(offspring)
+second_population=horse.new_population_generator(after_mutation_offsping)
+
+print(after_mutation_offsping)
+print(second_population)
 print('cozonac')
